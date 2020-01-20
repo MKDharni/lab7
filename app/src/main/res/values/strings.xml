@@ -1,5 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
+    xmlns:tools="http://schemas.android.com/tools"
     <string name="app_name">Android Labs</string>
+
     <string name="hello_message">Hello World!</string>
     <string name="ButtonText">I\'m a button</string>
+    <string name="button">CLICK HERE</string>
+    <string name="checkBox">Check this out!</string>
+    <string name="textView">Look at my GUI</string>
+    <string name="Switch">Switch on/off</string>
+    <string name="hint">Type here</string>
+    getResources.getString(R.string.toast_message);
+      <string name="toast_message">Here is more information.</string>
+    <string name="toast_message1">The Switch is now </string>
+    <string name="toast_message2">The Checkbox is now </string>
 </resources>

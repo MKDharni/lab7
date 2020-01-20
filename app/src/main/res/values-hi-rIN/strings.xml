@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
+    xmlns:tools="http://schemas.android.com/tools"
     <string name="app_name">Android Labs</string>
     <string name="hello_message">Namaste</string>
-    <string name="ButtonText">Namaste</string>
+    <string name="ButtonText">Button hoon main</string>
+    <string name="button">Main Button hoon.</string>
+    <string name="checkBox">Checkbox hoon main.</string>
+    <string name="textView">GUI ko dekho</string>
+    <string name="hint">Yahan likhen.</string>
+    <string name="Switch">Chalu/band</string>
+    getResources.getString(R.string.toast_message);
+    <string name="toast_message">Yeh jankaari hai.</string>
+    <string name="toast_message1">Svich abhi </string>
+    <string name="toast_message2">Checkaboks abhi </string>
 </resources>
