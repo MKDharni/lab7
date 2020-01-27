@@ -1,87 +1,73 @@
-package com.example.androidlabs;
 
+        package com.example.androidlabs;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.CheckBox;
-import android.widget.Switch;
-import android.widget.Toast;
-import android.widget.Button;
-import com.google.android.material.snackbar.Snackbar;
+public class MainActivity extends AppCompatActivity
+{
+    //protected Button myButton;
+    private EditText email;
+    private EditText password;
+    private Button login;
+    public static final String ACTIVITY_NAME = "MainActivity";
+    private SharedPreferences sharedPreferences;
 
-
-import static com.google.android.material.snackbar.Snackbar.*;
-
-public class MainActivity extends AppCompatActivity  {
-
-
-    //private Object Switch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main3);
 
-        //setContentView(R.layout.activity_main_relative);
-        setContentView(R.layout.activity_main_grid);
-        // setContentView(R.layout.activity_main_linear);
-        Switch sb = new Switch(this);
-        sb.setTextOff("OFF");
-        sb.setTextOn("ON");
-        sb.setChecked(true);
-
-        CheckBox ch = findViewById(R.id.checkBox);
-
-        EditText theEdit = findViewById(R.id.editText);
-
-        Switch sw = findViewById(R.id.switch1);
+        email=(EditText)findViewById(R.id.editTextEmail);
+        password=(EditText)findViewById(R.id.editTextPassword);
+        login=(Button)findViewById(R.id.buttonLogin);
+        sharedPreferences = getSharedPreferences("SharedPreferenceFile", Context.MODE_PRIVATE);
+        String savedString = sharedPreferences.getString("emailAddress", "").toString();
+        email.setText(savedString);
 
 
-        ch.setOnCheckedChangeListener((compoundButton,b) -> {
 
-
-            String str;
-            if (ch.isChecked()) {
-                Toast.makeText(MainActivity.this, getResources().getString(R.string.toast_message), Toast.LENGTH_LONG).show();
-                str = sw.getTextOn().toString();
-            }
-            else {
-                str = sw.getTextOff().toString();
-            }
-            Snackbar.make(ch, getResources().getString(R.string.toast_message2) +  " " +str, Snackbar.LENGTH_LONG)
-                    .setAction("Undo", click-> compoundButton.setChecked( !b ))
-                    .show();
+        login.setOnClickListener(e->
+        {
+            Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+            intent.putExtra("ReservedName",savedString);
+            startActivity(intent);
         });
 
-        sw.setOnCheckedChangeListener((compoundButton, b) -> {
-            //Toast.makeText(MainActivity.this, "Here is more information.", Toast.LENGTH_LONG).show();
-
-            String str1;
-            if (sw.isChecked())
-                str1 = sw.getTextOn().toString();
-            else
-                str1 = sw.getTextOff().toString();
-
-            Snackbar.make(theEdit, getResources().getString(R.string.toast_message1) + " "+ str1, LENGTH_LONG)
-                    .setAction("Undo", click -> compoundButton.setChecked(!b))
-                    .show();
+    }
 
 
-        });
-    }}
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e(ACTIVITY_NAME,"onPause");
 
-//reference: for snackbar
-//https://www.tutlane.com/tutorial/android/android-switch-on-off-button-with-examples
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("emailAddress", email.getText().toString());
+        Log.e(ACTIVITY_NAME,"onPause"+email.getText().toString());
+        editor.commit();
+    }
 
-/**
- *
- * To make changes in toast
- *
- * if (b){
- Toast.makeText(MainActivity.this, "Checkbox is ticked.", Toast.LENGTH_LONG).show();
- } else {
- Toast.makeText(MainActivity.this, "Checkbox is not ticked.", Toast.LENGTH_LONG).show();
- }**/
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

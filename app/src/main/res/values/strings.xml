@@ -13,7 +13,16 @@
     <string name="Switch">Switch on/off</string>
     <string name="hint">Type here</string>
     getResources.getString(R.string.toast_message);
-      <string name="toast_message">Here is more information.</string>
+    <string name="toast_message">Here is more information.</string>
     <string name="toast_message1">The Switch is now </string>
     <string name="toast_message2">The Checkbox is now </string>
+    <string name="editTextEmail">Enter your email address:</string>
+    <string name="textViewClick">Click the button above to take a picture</string>
+    <string name="editText2">Type email here</string>
+    <string name="textView3">Type your password:</string>
+    <string name="loginButton">LOGIN</string>
+   <string name="yes">Enter your Email</string>
+    <string name="textView6">Your Picture</string>
+    <string name="editText4">Enter your name</string>
+    <string name="textViewProfile">Your profile</string>
 </resources>

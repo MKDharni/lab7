@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewProfile"
+        android:layout_width="404dp"
+        android:layout_height="29dp"
+        android:text="Your Profile:"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="1dp">
+
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="116dp"
+        android:layout_height="24dp"
+        android:text="Your Name"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="411dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="Enter your name"
+        android:inputType="textPersonName"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="54dp" />
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingConstraints"
+    android:text="Your Email"
+    android:id="@+id/textYourEmail">
+
+</TextView>
+
+    <EditText
+        android:id="@+id/emailTextID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your Email">
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Picture"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="94dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imageButtonID"
+        android:layout_width="411dp"
+        android:layout_height="40dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="113dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@android:drawable/picture_frame"
+    </ImageButton>
+
+    <TextView
+        android:id="@+id/textViewClick"
+        android:layout_width="413dp"
+        android:layout_height="30dp"
+        android:text="Click the button above to take a picture"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="153dp"
+        tools:ignore="MissingConstraints" />
+
+</LinearLayout>
