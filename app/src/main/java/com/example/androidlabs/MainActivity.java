@@ -1,6 +1,6 @@
-
-        package com.example.androidlabs;
-
+package com.example.androidlabs;
+/**
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,65 +9,92 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivity extends AppCompatActivity
-{
-    //protected Button myButton;
-    private EditText email;
-    private EditText password;
-    private Button login;
-    public static final String ACTIVITY_NAME = "MainActivity";
-    private SharedPreferences sharedPreferences;
-
-
+public class MainActivity extends AppCompatActivity {
+    SharedPreferences prefs = null;
+    String stringToSave="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+        EditText emailField=findViewById(R.id.editText1);
+        SharedPreferences  prefs = getSharedPreferences("FileName", Context.MODE_PRIVATE);
+        String savedString = prefs.getString("email", "");
+        emailField.setText(savedString);
+        Button loginButton = findViewById(R.id.button1);
+        loginButton.setOnClickListener( bt ->{stringToSave=emailField.getText().toString();
+        //Intent is an object that tells which page we are now and where to go next.
+        Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
+            //putExtra basically adds extra inf. to send to next page.
+        goToProfile.putExtra("EMAIL",stringToSave);
+            //to go to next page like profilePage here.
+            startActivity(goToProfile);
 
-        email=(EditText)findViewById(R.id.editTextEmail);
-        password=(EditText)findViewById(R.id.editTextPassword);
-        login=(Button)findViewById(R.id.buttonLogin);
-        sharedPreferences = getSharedPreferences("SharedPreferenceFile", Context.MODE_PRIVATE);
-        String savedString = sharedPreferences.getString("emailAddress", "").toString();
-        email.setText(savedString);
-
-
-
-        login.setOnClickListener(e->
-        {
-            Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
-            intent.putExtra("ReservedName",savedString);
-            startActivity(intent);
-        });
-
+        } );
     }
 
+    @Override
+    protected void onPause(){
+        super.onPause();
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("email", stringToSave);
+        editor.commit();
+    }
+}**/
+
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText emailField;
+    SharedPreferences sp;
+    Button loginBtn;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main3);
+
+        emailField = (EditText)findViewById(R.id.editText1);
+        sp = getSharedPreferences("FileName", Context.MODE_PRIVATE);
+        String savedString = sp.getString("ReserveName", "Default value");
+
+        emailField.setHint(savedString);
+
+        loginBtn = (Button)findViewById(R.id.button1);
+
+        loginBtn.setOnClickListener( c -> {
+
+            Intent profilePage = new Intent(MainActivity.this, ProfileActivity.class);
+            //Give directions to go from this page, to SecondActivity
+            // EditText et = (EditText)findViewById(R.id.Lab3editText2);
+
+            profilePage.putExtra("emailTyped", emailField.getText().toString());
+
+            //Now make the transition:
+            startActivityForResult( profilePage, 345);
+        });
+    }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.e(ACTIVITY_NAME,"onPause");
 
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("emailAddress", email.getText().toString());
-        Log.e(ACTIVITY_NAME,"onPause"+email.getText().toString());
+        //get an editor object
+        SharedPreferences.Editor editor = sp.edit();
+
+        //save what was typed under the name "ReserveName"
+        String whatWasTyped = emailField.getText().toString();
+        editor.putString("ReserveName", whatWasTyped);
+
+        //write it to disk:
         editor.commit();
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

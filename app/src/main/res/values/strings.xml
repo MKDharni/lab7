@@ -21,8 +21,30 @@
     <string name="editText2">Type email here</string>
     <string name="textView3">Type your password:</string>
     <string name="loginButton">LOGIN</string>
-   <string name="yes">Enter your Email</string>
+    <string name="yes">Enter your Email</string>
     <string name="textView6">Your Picture</string>
+    <string name="pictureText">Your Picture</string>
     <string name="editText4">Enter your name</string>
+    <string name="nameHint">Enter your name</string>
+    <string name="editTextmail">Enter your Email</string>
+    <string name="emailHint2">Enter your Email</string>
+
+    <string name="yourName">Your Name</string>
+
+    <string name="nameText">Your Name</string>
+    <string name="yourEmail">Your Email</string>
+    <string name="emailText2">Your Email</string>
     <string name="textViewProfile">Your profile</string>
+    <string name="chatButton">Go to Chat</string>
+    <string name="buttonSend">Send</string>
+    <string name="goToChatButton"> Go to Chat</string>
+
+    <string name="editTextLab4">Type here</string>
+    <string name="buttonReceive">Receive</string>
+    <string name="emailHint">Type email here</string>
+    <string name="login">Login</string>
+    <string name="passwordText">Type your password :</string>
+    <string name="emailText">Enter your email address :</string>
+    <string name="profileText">Your profile</string>
+
 </resources>

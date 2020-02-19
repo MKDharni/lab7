@@ -8,20 +8,38 @@
     <string name="button">Main Button hoon.</string>
     <string name="checkBox">Checkbox hoon main.</string>
     <string name="textView">GUI ko dekho</string>
+    <string name="pictureText">Apki pic</string>
     <string name="hint">Yahan likhen.</string>
     <string name="Switch">Chalu/band</string>
+    <string name="nameHint">Naam dalen</string>
+    <string name="emailText2">Apki email</string>
+    <string name="emailHint2">Apni Email likhen:</string>
+
+    <string name="nameText">Apka naam</string>
     <string name="toast_message">Yeh jankaari hai.</string>
     <string name="toast_message1">Svich abhi </string>
     <string name="toast_message2">Checkaboks abhi </string>
     <string name="editTextEmail">Email address dalo:</string>
     <string name="editText2">Email yahan dalo</string>
+    <string name="goToChatButton"> Btein karne ke liye aage jayein</string>
     <string name="textView3">Apna password dalen:</string>
     <string name="loginButton">Andar</string>
     <string name="yes">Email dalen</string>
     <string name="textView6">Apki Tasveer</string>
+    <string name="emailText">Email bharen</string>
+    <string name="profileText">Apki profile</string>
     <string name="editText4">Apna naam likhe</string>
-
+    <string name="chatButton">Baaton pe chalo.</string>
+    <string name="yourName">Apka naam</string>
+    <string name="yourEmail">Apka Mailll</string>
+    <string name="editTextmail">Mail dalen apni</string>
     <string name="textViewProfile">Apki profail:</string>
     <string name="textViewClick">Battan ko dabaeii.</string>
+    <string name="buttonSend">Bhejo</string>
+    <string name="editTextLab4">Yahan likhe.</string>
+    <string name="buttonReceive">Vapis</string>
+    <string name="emailHint">Email likho</string>
+    <string name="login">Aage</string>
+    <string name="passwordText">Passward likhe</string>
 
 </resources>
