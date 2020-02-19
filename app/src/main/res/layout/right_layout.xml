@@ -1,24 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rightLayout"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<?xml version="1.0" encoding="UTF-8"?>
 
+    <RelativeLayout
+    android:clipToPadding="false"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:layout_alignParentEnd="true"
-        android:id="@+id/imageRight"
-        android:layout_width="105dp"
-        android:layout_height="80dp"
-        app:srcCompat="@drawable/row_receive" />
+    <ListView
+        android:layout_height="34dp"
+        android:layout_width="34dp" android:scaleType="centerInside"
+        android:background="@drawable/row_send"
+        android:id="@+id/senderAvatar"/>
 
     <TextView
-        android:layout_toLeftOf="@+id/imageRight"
-        android:id="@+id/msgRight"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Right"
-        android:textSize="25dp"/>
+        android:layout_width="match_parent"
+        android:id="@+id/textOnly"
+        android:visibility="visible"
+        android:textSize="30dp"
+        android:textAlignment="textStart"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16dp"
+        android:elevation="2dp"
+        android:layout_toEndOf="@id/senderAvatar"/>
 
 </RelativeLayout>

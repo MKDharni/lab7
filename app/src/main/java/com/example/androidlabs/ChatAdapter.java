@@ -9,44 +9,51 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ChatAdapter extends BaseAdapter {
-    private List<MessageModel> listMessage;
+class ChatAdapter extends BaseAdapter {
+
+    private List<Message> messages;
     private Context context;
     private LayoutInflater inflater;
 
-    @Override
-    public int getCount() {
-        return listMessage.size();
-    }
-    public ChatAdapter(List<MessageModel> listMessage, Context context) {
-        this.listMessage =listMessage;
+    public ChatAdapter(List<Message> messages, Context context)
+    {
+        this.messages = messages;
         this.context = context;
-        this.inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    }
-    @Override
-    public Object getItem(int position) {
-        return listMessage.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
+        this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
+        View v = convertView;
 
-        if (view == null){
-            if (listMessage.get(position).isSend()){
-                view = inflater.inflate(R.layout.left_layout, null);
-
-            }else {
-                view = inflater.inflate(R.layout.right_layout, null);
-            }
-            TextView messageText = (TextView)view.findViewById(R.id.msgRight);
-            messageText.setText(listMessage.get(position).message);
+        if (v == null){
+            if (messages.get(position).isGone()){
+                v = inflater.inflate(R.layout.left_layout, null);
+}
+            else
+                {
+                v = inflater.inflate(R.layout.right_layout, null);
+                }
+            TextView  messageTyped = (TextView)v.findViewById(R.id.textOnly);
+            messageTyped.setText(messages.get(position).message);
         }
-        return view;
+        return v;
+    }
+    @Override
+    public int getCount()
+    {
+        return messages.size();
+    }
+
+    @Override
+    public Object getItem(int position)
+    {
+        return messages.get(position);
+    }
+
+    @Override
+    public long getItemId(int position)
+    {
+        return position;
     }
 }
