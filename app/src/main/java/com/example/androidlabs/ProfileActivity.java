@@ -1,6 +1,5 @@
 package com.example.androidlabs;
 
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -12,16 +11,15 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.androidlabs.ChatRoomActivity;
+import com.example.androidlabs.R;
+
 public class ProfileActivity extends AppCompatActivity {
+
     static final int REQUEST_IMAGE_CAPTURE = 1;
     ImageButton takePictureBtn;
-    Button goToChatBtn;
+    Button goToChatBtn, goToToolbarBtn, goToWeatherBtn;
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
-
-    @Override
-    public Intent getIntent() {
-        return super.getIntent();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,26 +32,46 @@ public class ProfileActivity extends AppCompatActivity {
         String emailTyped = loginPage.getStringExtra("emailTyped");
 
         //Put the string that was sent from FirstActivity into the edit text:
-        EditText enterText = (EditText) findViewById(R.id.editText2);
+        EditText enterText = findViewById(R.id.EmailEditText);
         enterText.setText(emailTyped);
 
-        takePictureBtn = (ImageButton) findViewById(R.id.imageButton);
+        takePictureBtn = findViewById(R.id.ImageButton);
         takePictureBtn.setOnClickListener(c -> {
+
+
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             }
-            });
 
-        goToChatBtn = (Button)findViewById(R.id.goToChatButton);
-        goToChatBtn.setOnClickListener(c ->
-        {
-            Intent goToChatPage = new Intent(ProfileActivity.this, ChatRoomActivity.class);
-            startActivityForResult(goToChatPage, 400);
         });
 
-             Log.d(ACTIVITY_NAME, "In function: onCreate()");
-        }
+        goToChatBtn = findViewById(R.id.GoToChatBtn);
+        goToChatBtn.setOnClickListener(c -> {
+            Intent goToChatPage = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+
+            startActivityForResult(goToChatPage, 345);
+
+        });
+
+        //goToToolbarBtn = findViewById(R.id.GoToToolbarPage);
+        // goToToolbarBtn.setOnClickListener(c -> {
+        // Intent goToMenuPage = new Intent(ProfileActivity.this, TestToolbar.class);
+
+        // startActivityForResult(goToMenuPage, 123);}        );
+
+        goToWeatherBtn = findViewById(R.id.GoToWeatherPage);
+        goToWeatherBtn.setOnClickListener(c -> {
+            Intent goToMenuPage = new Intent(ProfileActivity.this, WeatherForcast.class);
+
+            startActivityForResult(goToMenuPage, 234);
+
+        });
+
+        Log.d(ACTIVITY_NAME, "In function: onCreate()");
+
+
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

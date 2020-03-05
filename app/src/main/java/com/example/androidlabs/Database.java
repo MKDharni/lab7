@@ -1,52 +1,63 @@
 package com.example.androidlabs;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import java.util.Arrays;
 
-public class Database extends SQLiteOpenHelper
-{
-    public static final String DATABASE_NAME = "MyDatabase";
-    public static final int VERSION_NUM = 2;
-    public static final String TABLE_NAME = "MESSAGETABLE";
-    public static final String COLUMN_ID = "D_id";
-    public static final String COLUMN_SEND = "DisSend";
-    public static final String COLUMN_MESSAGE = "Dmessage";
+public class Database extends SQLiteOpenHelper {
 
-    public Database(Context ctx)
-    {
-        super(ctx, DATABASE_NAME, null, VERSION_NUM);
+    private static final String DB_NAME = "MessagesDB";
+    private static final String DB_TABLE = "Messages_Table";
+
+    //columns
+    private static final String COL_MESSAGE = "Message";
+    private static final String COL_ISSEND = "IsSend";
+    private static final String COL_MESSAGEID = "MessageID";
+
+    //queries
+    private static final String CREATE_TABLE = "CREATE TABLE "+DB_TABLE+" ("+COL_MESSAGEID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+COL_MESSAGE+" TEXT, "+COL_ISSEND+" BIT);";
+
+    public Database(Context context) {
+        super(context, DB_NAME, null, 2);
     }
-     public void onCreate(SQLiteDatabase db)
-    {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "( "+ COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + COLUMN_SEND + " INTEGER , " + COLUMN_MESSAGE + " TEXT)");
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(CREATE_TABLE);
     }
-    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion)
-    {
-        Log.w(Database.class.getName(),"The database is upgraded from "
-                + oldVersion + " to "+ newVersion + " .");
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + DB_TABLE);
         onCreate(db);
     }
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
-    {
-        Log.w(Database.class.getName(),"The database is upgraded from "
-                + newVersion + " to "+ oldVersion + " .");
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        onCreate(db);
+
+    //insert data
+    public boolean insertData(String message, boolean isSend) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_MESSAGE, message);
+        if (isSend)
+            contentValues.put(COL_ISSEND, 0);
+        else
+            contentValues.put(COL_ISSEND, 1);
+
+        long result = db.insert(DB_TABLE, null, contentValues);
+
+        return result != -1; //if result = -1 data doesn't insert
     }
-    public void printCursor(Cursor c)
-    {
-        Log.d("printCursor", "The version of Datebase is : " + getReadableDatabase().getVersion());
-        Log.d("printCursor", "The total number of rows in the cursor: " + c.getCount());
-        Log.d("printCursor", "The number of columns in the cursor : " + c.getColumnCount());
-        Log.d("printCursor", "Name of the columns in the cursor: " + Arrays.toString(c.getColumnNames()));
-        Log.d("printCursor", "Each row of results in the cursor: " + DatabaseUtils.dumpCursorToString(c));
+
+    //view data
+    public Cursor viewData(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "Select * from "+DB_TABLE;
+        Cursor cursor = db.rawQuery(query, null);
+        Log.v("Cursor Object", DatabaseUtils.dumpCursorToString(cursor));
+        return cursor;
     }
 }
+

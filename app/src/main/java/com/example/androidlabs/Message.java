@@ -5,53 +5,36 @@ public class Message {
     public String message;
     public boolean isSend;
     public long messageID;
-    private String action;
 
-    public Message(String message, boolean hasSend )
-    {
+    public Message(String message, boolean isSend ) {
         this.message = message;
-        this.isSend = hasSend;
+        this.isSend = isSend;
     }
-     public Message()
-    {
+
+    public Message() {
     }
-     public String getMessage()
-    {
+
+    public String getMessage() {
         return message;
     }
-    public void setMessage(String message)
-    {
-        this.message = message;
 
+    public void setMessage(String message) {
+        this.message = message;
     }
-    public void setAction(String action)
-    {
-        this.action = action;
-    }
-    public String getAction()
-    {
-        return this.action;
-    }
-    public Message(String message, boolean isSend, long messageID)
-    {
-        this.message=message;
-        this.isSend=isSend;
-        this.messageID=messageID;
-    }
-    public boolean isGone()
-    {
+
+    public boolean isSend() {
         return isSend;
     }
-    public void setSend(boolean send)
-    {
+
+    public void setSend(boolean send) {
         isSend = send;
     }
-     public long getMessageID()
-    {
+
+    public long getMessageID() {
         return messageID;
     }
-    public void setMessageID(long messageID)
-    {
+
+    public void setMessageID(long messageID) {
         this.messageID = messageID;
     }
 }

@@ -1,45 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <resources>
-    xmlns:tools="http://schemas.android.com/tools"
-    <string name="app_name">Android Labs</string>
-    <string name="hello_message">Namaste</string>
-    <string name="ButtonText">Button hoon main</string>
-    <string name="button">Main Button hoon.</string>
-    <string name="checkBox">Checkbox hoon main.</string>
-    <string name="textView">GUI ko dekho</string>
-    <string name="pictureText">Apki pic</string>
-    <string name="hint">Yahan likhen.</string>
-    <string name="Switch">Chalu/band</string>
-    <string name="nameHint">Naam dalen</string>
-    <string name="emailText2">Apki email</string>
-    <string name="emailHint2">Apni Email likhen:</string>
-
-    <string name="nameText">Apka naam</string>
-    <string name="toast_message">Yeh jankaari hai.</string>
-    <string name="toast_message1">Svich abhi </string>
-    <string name="toast_message2">Checkaboks abhi </string>
-    <string name="editTextEmail">Email address dalo:</string>
-    <string name="editText2">Email yahan dalo</string>
-    <string name="goToChatButton"> Btein karne ke liye aage jayein</string>
-    <string name="textView3">Apna password dalen:</string>
-    <string name="loginButton">Andar</string>
-    <string name="yes">Email dalen</string>
-    <string name="textView6">Apki Tasveer</string>
-    <string name="emailText">Email bharen</string>
-    <string name="profileText">Apki profile</string>
-    <string name="editText4">Apna naam likhe</string>
-    <string name="chatButton">Baaton pe chalo.</string>
-    <string name="yourName">Apka naam</string>
-    <string name="yourEmail">Apka Mailll</string>
-    <string name="editTextmail">Mail dalen apni</string>
-    <string name="textViewProfile">Apki profail:</string>
-    <string name="textViewClick">Battan ko dabaeii.</string>
-    <string name="buttonSend">Bhejo</string>
-    <string name="editTextLab4">Yahan likhe.</string>
-    <string name="buttonReceive">Vapis</string>
-    <string name="emailHint">Email likho</string>
-    <string name="login">Aage</string>
-    <string name="passwordText">Passward likhe</string>
+    <string name="app_name">AndroidLabs</string>
+    <string name="hello_message">Hello World</string>
+    <string name="ButtonText">I\'m a button</string>
+    <string name="ButtonText2">Button</string>
+    <string name="CheckBoxText">Check this out!</string>
+    <string name="SwitchText">Switch on / off</string>
+    <string name="EditText">Type your answer here</string>
+    <string name="TextViewText">Here are my widgets:</string>
+    <string name="Lab3TextView1">Enter your email address:</string>
+    <string name="Lab3TextView2">Enter your password:</string>
+    <string name="Lab3EmailHint">Type email here:</string>
+    <string name="Lab3LoginBtnText">Login</string>
+    <string name="ProfileText">Your profile</string>
+    <string name="NameText">Your name:</string>
+    <string name="NameHintText">Enter your name</string>
+    <string name="EmailTextViewText">Your email:</string>
+    <string name="EmailHintText">Enter your email</string>
+    <string name="PictureTextView">Your picture:</string>
+    <string name="ImagePictureTextView">Click the button above to take a picture</string>
+    <string name="GoToChatText">Go To Chat</string>
+    <string name="SendText">Send</string>
+    <string name="ReceiveText">Receive</string>
+    <string name="ChatHint">Type here</string>
+    <string name="GoToToolbar">Go to Toolbar page</string>
+    <string name="GoToWeather">Go to Weather page</string>
 
 </resources>
