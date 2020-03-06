@@ -35,10 +35,14 @@
         android:id="@+id/EmailTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/EmailTextViewText"
+        android:layout_below="@id/NameEditText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/NameEditText"/>
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginRight="-4dp"
+        android:text="@string/EmailTextViewText" />
+
     <EditText
         android:id="@+id/EmailEditText"
         android:layout_width="match_parent"
@@ -62,10 +66,14 @@
         android:id="@+id/ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/PictureTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:src="@android:drawable/picture_frame"
-        android:layout_below="@id/PictureTextView"/>
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="-1dp"
+        android:src="@android:drawable/picture_frame" />
+
     <TextView
         android:id="@+id/ImagePictureTextView"
         android:layout_width="match_parent"
@@ -79,20 +87,25 @@
         android:id="@+id/GoToChatBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/ImagePictureTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:text="@string/GoToChatText"
-        android:layout_below="@id/ImagePictureTextView"/>
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="0dp"
+        android:text="@string/GoToChatText" />
 
     <Button
         android:id="@+id/GoToWeatherPage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/GoToChatBtn"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:text="@string/GoToWeather"
-        android:layout_below="@id/GoToChatBtn"/>
-
+        android:layout_marginLeft="-8dp"
+        android:layout_marginTop="-265dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/GoToWeather" />
 
 
 </RelativeLayout>

@@ -19,8 +19,8 @@
         android:layout_below="@id/weather"
         android:layout_alignParentLeft="true"
         android:layout_gravity="center"
-        android:layout_marginLeft="61dp"
-        android:layout_marginTop="-23dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="-72dp"
         android:text="current temp" />
 
     <TextView
@@ -30,8 +30,8 @@
         android:layout_below="@id/currentTemp"
         android:layout_alignParentLeft="true"
         android:layout_gravity="center"
-        android:layout_marginLeft="151dp"
-        android:layout_marginTop="-121dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="21dp"
         android:text="min temp" />
 
     <TextView
@@ -41,8 +41,8 @@
         android:layout_below="@id/minTemp"
         android:layout_alignParentLeft="true"
         android:layout_gravity="center"
-        android:layout_marginLeft="63dp"
-        android:layout_marginTop="-199dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="-40dp"
         android:text="max temp" />
 
     <TextView
@@ -51,8 +51,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/maxTemp"
         android:layout_alignParentLeft="true"
-        android:text="uv"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="18dp"
+        android:text="uv" />
 
     <ProgressBar
         android:layout_width="match_parent"

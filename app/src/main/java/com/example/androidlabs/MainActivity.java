@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
-        Intent profilePage = new Intent(MainActivity.this, WeatherForcast.class);
-        startActivityForResult( profilePage, 234);
+       /* Intent profilePage = new Intent(MainActivity.this, WeatherForcast.class);
+        startActivityForResult( profilePage, 234);*/
 
-       /* emailField = findViewById(R.id.Lab3editText2);
+       emailField = findViewById(R.id.Lab3editText2);
         sp = getSharedPreferences("FileName", Context.MODE_PRIVATE);
         String savedString = sp.getString("ReserveName", "Default value");
 
@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
 
             Intent profilePage = new Intent(MainActivity.this, ProfileActivity.class);
             //Give directions to go from this page, to SecondActivity
-            // EditText et = (EditText)findViewById(R.id.Lab3editText2);
+             EditText et = (EditText)findViewById(R.id.Lab3editText2);
 
             profilePage.putExtra("emailTyped", emailField.getText().toString());
 
             //Now make the transition:
             startActivityForResult( profilePage, 345);
-        });*/
+        });
     }
 
     @Override
