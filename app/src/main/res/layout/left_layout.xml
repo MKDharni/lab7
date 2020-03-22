@@ -1,27 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<RelativeLayout android:clipToPadding="false"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_height="match_parent" android:layout_width="match_parent" android:orientation="horizontal" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/leftLayout" xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ListView android:layout_height="34dp"
-        android:layout_width="34dp"
-        android:scaleType="centerInside"
-        android:background="@drawable/row_receive"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/receiverAvatar"/>
+    <ImageView android:layout_height="80dp" android:layout_width="105dp" android:id="@+id/imageLeft" app:srcCompat="@drawable/row_send" android:layout_alignParentStart="true"/>
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/textOnly"
-        android:visibility="visible"
-        android:textSize="30dp"
-        android:textAlignment="textEnd"
-        android:paddingVertical="12dp"
-        android:paddingHorizontal="16dp"
-        android:elevation="2dp"
-        android:layout_toStartOf="@id/receiverAvatar"/>
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/msgLeft" android:textSize="25dp" android:text="" android:layout_toRightOf="@+id/imageLeft"/>
 
 </RelativeLayout>

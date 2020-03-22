@@ -24,5 +24,8 @@
     <string name="ChatHint">Type here</string>
     <string name="GoToToolbar">Go to Toolbar page</string>
     <string name="GoToWeather">Go to Weather page</string>
-
+    <string name="send">bhejo</string>
+    <string name="receive">lelo</string>
+    <string name="deleteConfirmation">Do you want to delete this?</string>
+    <string name="typeHere">yahan likhe</string>
 </resources>

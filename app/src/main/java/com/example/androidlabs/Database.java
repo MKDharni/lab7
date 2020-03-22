@@ -50,7 +50,14 @@ public class Database extends SQLiteOpenHelper {
 
         return result != -1; //if result = -1 data doesn't insert
     }
+    public int deleteEntry(int id)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        String where="MessageID=?";
+        int numberOFEntriesDeleted= db.delete(DB_TABLE, where, new String[]{Integer.toString(id)});
+        return numberOFEntriesDeleted;
+    }
     //view data
     public Cursor viewData(){
         SQLiteDatabase db = this.getReadableDatabase();
@@ -59,5 +66,6 @@ public class Database extends SQLiteOpenHelper {
         Log.v("Cursor Object", DatabaseUtils.dumpCursorToString(cursor));
         return cursor;
     }
+
 }
 

@@ -27,6 +27,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class WeatherForcast extends AppCompatActivity {
 
@@ -41,12 +42,12 @@ public class WeatherForcast extends AppCompatActivity {
         ForecastQuery networkThread = new ForecastQuery();
         networkThread.execute("http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metric");
 
-        weather = (ImageView)findViewById(R.id.weather);
-        currentTemp = (TextView)findViewById(R.id.currentTemp);
-        minTemp = (TextView)findViewById(R.id.minTemp);
-        maxTemp = (TextView)findViewById(R.id.maxTemp);
-        uvRating = (TextView)findViewById(R.id.uvRating);
-        progressBar = (ProgressBar)findViewById(R.id.progressBar);
+        weather = findViewById(R.id.weather);
+        currentTemp = findViewById(R.id.currentTemp);
+        minTemp = findViewById(R.id.minTemp);
+        maxTemp = findViewById(R.id.maxTemp);
+        uvRating = findViewById(R.id.uvRating);
+        progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
     }
 
@@ -156,7 +157,7 @@ public class WeatherForcast extends AppCompatActivity {
                 inStream = UVConnection.getInputStream();
 
                 //create a JSON object from the response
-                BufferedReader reader = new BufferedReader(new InputStreamReader(inStream, "UTF-8"), 8);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inStream, StandardCharsets.UTF_8), 8);
                 StringBuilder sb = new StringBuilder();
 
                 String line = null;

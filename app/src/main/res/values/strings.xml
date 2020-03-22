@@ -12,6 +12,9 @@
     <string name="Lab3EmailHint">Type email here:</string>
     <string name="Lab3LoginBtnText">Login</string>
     <string name="ProfileText">Your profile</string>
+    <string name="send">send</string>
+
+    <string name="typeHere">Type  here</string>
     <string name="NameText">Your name:</string>
     <string name="NameHintText">Enter your name</string>
     <string name="EmailTextViewText">Your email:</string>
@@ -24,5 +27,6 @@
     <string name="ChatHint">Type here</string>
     <string name="GoToToolbar">Go to Toolbar page</string>
     <string name="GoToWeather">Go to Weather page</string>
-
+    <string name="deleteConfirmation">Mitana hai?</string>
+    <string name="receive">receive</string>
 </resources>
