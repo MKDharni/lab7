@@ -1,41 +1,60 @@
 package com.example.androidlabs;
 
+
+import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.navigation.NavigationView;
 
 
-public class TestToolbar extends AppCompatActivity {
+public class TestToolbar extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
     String overflowToast = "You clicked on the overflow menu";
     Toolbar toolbar;
+
+    DrawerLayout drawerLayout;
+    private NavigationView nv;
+    ActionBarDrawerToggle toggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_toolbar);
 
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//disappear the title
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        ActionBar actionBar = getActionBar();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        //add back navigation button
-        if (getSupportActionBar() !=null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,
+                drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,46 +65,55 @@ public class TestToolbar extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId())
         {
-            //what to do when the menu item is selected:
-            case R.id.MenuItems_overflow:
-                //Show the toast immediately:
+
+            case R.id.one:
                 Toast.makeText(this, overflowToast, Toast.LENGTH_LONG).show();
                 break;
-            case R.id.MenuItems_delete:
-                //Show the toast immediately:
-                Toast.makeText(this, "This is the initial message", Toast.LENGTH_LONG).show();
+            case R.id.two:
+                Toast.makeText(this, "You clicked on item 1", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.MenuItems_edit:
-                alertExample();
+            case R.id.three:
+                Toast.makeText(this, "You clicked on item 2", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.MenuItems_share:
-                //Snackbar code:
-                Snackbar sb = Snackbar.make(toolbar, "This is the snackbar", Snackbar.LENGTH_LONG)
-                        .setAction("Go Back?", e -> finish());
-                sb.show();
+            case R.id.four:
+                Toast.makeText(this, "You clicked on item 3", Toast.LENGTH_LONG).show();
                 break;
+  }
 
-        }
+
+
         return true;
     }
 
-    public void alertExample()
-    {
-        View middle = getLayoutInflater().inflate(R.layout.dialog, null);
-        EditText et = middle.findViewById(R.id.view_edit_text);
+    public boolean onNavigationItemSelected( MenuItem item) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("The Message")
-                .setPositiveButton("Positive", (dialog, id) -> overflowToast = et.getText().toString())
-                .setNegativeButton("Negative", (dialog, id) -> {
-                    // What to do on Cancel
-                }).setView(middle);
+        String message = null;
 
-        builder.create().show();
+        switch(item.getItemId())
+        {case R.id.ChatItem:
+                Intent ChatPage = new Intent(this, ChatRoomActivity.class);
+                startActivity(ChatPage);
+                break;
+            case R.id.WeatherItem:
+                Intent WeatherPage = new Intent(this, WeatherForcast.class);
+                startActivity(WeatherPage);
+                break;
+            case R.id.GoBack:
+                Intent endit = new Intent(this, ProfileActivity.class);
+                setResult(500,endit);
+                finish();
+                break;
+        }
+
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return false;
     }
+
 
 }
