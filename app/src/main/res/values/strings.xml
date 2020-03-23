@@ -13,6 +13,7 @@
     <string name="Lab3LoginBtnText">Login</string>
     <string name="ProfileText">Your profile</string>
     <string name="send">send</string>
+    <string name="goToToolbar">Go to Toolbar</string>
 
     <string name="typeHere">Type  here</string>
     <string name="NameText">Your name:</string>

@@ -1,17 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-    <androidx.constraintlayout.widget.ConstraintLayout tools:context=".ChatRoomActivity" android:layout_height="match_parent" android:layout_width="match_parent" xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout
+    tools:context=".ChatRoomActivity"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    -<RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content" app:layout_constraintRight_toRightOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintBottom_toBottomOf="parent">
+    <RelativeLayout
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent">
 
-    <ListView android:layout_height="match_parent" android:layout_width="match_parent" android:id="@+id/listView"> </ListView>
+    <ListView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/listView">
+    </ListView>
 
-    <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/buttonSend" android:text="@string/send" android:layout_alignParentEnd="@+id/msgBox" android:layout_alignParentBottom="true"/>
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/buttonSend"
+        android:text="@string/send"
+        android:layout_alignParentEnd="@+id/msgBox"
+        android:layout_alignParentBottom="true"/>
 
-    <EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/msgBox" android:layout_alignParentBottom="true" android:hint="@string/typeHere" android:layout_toRightOf="@+id/buttonSend" android:layout_toLeftOf="@+id/buttonReceive"/>
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/msgBox"
+        android:layout_alignParentBottom="true"
+        android:hint="@string/typeHere"
+        android:layout_toRightOf="@+id/buttonSend"
+        android:layout_toLeftOf="@+id/buttonReceive"/>
 
-    <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/buttonReceive" android:text="@string/receive" android:layout_alignParentEnd="true" android:layout_alignParentBottom="true"/>
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/buttonReceive"
+        android:text="@string/receive"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
 

@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidlabs.ChatRoomActivity;
 import com.example.androidlabs.R;
 
+import java.util.zip.Inflater;
+
 public class ProfileActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -51,6 +53,16 @@ public class ProfileActivity extends AppCompatActivity {
             Intent goToChatPage = new Intent(ProfileActivity.this, ChatRoomActivity.class);
 
             startActivityForResult(goToChatPage, 345);
+
+        });
+
+
+        goToToolbarBtn = findViewById(R.id.goToToolbar);
+        goToToolbarBtn.setOnClickListener(c->{
+            Intent goToToolbar = new Intent(ProfileActivity.this, TestToolbar.class);
+             startActivityForResult(goToToolbar, 345);
+
+
 
         });
 

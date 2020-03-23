@@ -102,10 +102,17 @@
         android:layout_below="@id/GoToChatBtn"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_marginLeft="-8dp"
-        android:layout_marginTop="-265dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="-273dp"
+        android:layout_marginRight="-7dp"
         android:text="@string/GoToWeather" />
+
+    <Button
+        android:id="@+id/goToToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/GoToChatBtn"
+        android:text="@string/GoToToolbar" />
 
 
 </RelativeLayout>
